@@ -361,11 +361,12 @@
       try {
         const res = await fetch(form.action, { method: 'POST', body: data, headers: { Accept: 'application/json' } });
         if (!res.ok) throw new Error('Gagal mengirim');
-        sessionStorage.setItem('ecRegistration', JSON.stringify({
-          nama: data.get('nama'), email: data.get('email'), whatsapp: data.get('whatsapp'),
-          pilihan: data.get('pilihan'), paket: data.get('paket')
-        }));
-        location.href = '/berhasil-daftar';
+        // KODE BARU (SUDAH DIPERBAIKI):
+sessionStorage.setItem('ecRegistration', JSON.stringify({
+  nama: data.get('nama'), email: data.get('email'), whatsapp: data.get('whatsapp'),
+  pilihan: data.get('pilihan'), paket: data.get('paket')
+}));
+location.href = 'berhasil-daftar.html'; 
       } catch (_) {
         msg.innerText = 'Pendaftaran gagal dikirim. Periksa koneksi Anda dan coba lagi.';
         msg.classList.remove('hidden');

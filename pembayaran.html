@@ -45,13 +45,13 @@
         <section class="bg-white rounded-3xl shadow-sm p-6 space-y-3">
           <h2 class="font-bold text-lg text-slate-900">3. Metode pembayaran</h2>
           <label class="flex items-center gap-3 rounded-2xl border border-slate-200 p-4 cursor-pointer has-[:checked]:border-indigo-500 has-[:checked]:bg-indigo-50">
-            <input type="radio" name="method" value="Transfer Bank (Virtual Account)" required class="accent-indigo-600"> <span class="font-semibold">🏦 Transfer Bank (Virtual Account)</span>
+            <input type="radio" name="method" value="Transfer Bank (Virtual Account)" required class="accent-indigo-600"> <span class="font-semibold">Transfer Bank (Virtual Account)</span>
           </label>
           <label class="flex items-center gap-3 rounded-2xl border border-slate-200 p-4 cursor-pointer has-[:checked]:border-indigo-500 has-[:checked]:bg-indigo-50">
-            <input type="radio" name="method" value="E-Wallet (GoPay / OVO / DANA)" class="accent-indigo-600"> <span class="font-semibold">📱 E-Wallet (GoPay / OVO / DANA)</span>
+            <input type="radio" name="method" value="E-Wallet (GoPay / OVO / DANA)" class="accent-indigo-600"> <span class="font-semibold">E-Wallet (GoPay / OVO / DANA)</span>
           </label>
           <label class="flex items-center gap-3 rounded-2xl border border-slate-200 p-4 cursor-pointer has-[:checked]:border-indigo-500 has-[:checked]:bg-indigo-50">
-            <input type="radio" name="method" value="QRIS" class="accent-indigo-600"> <span class="font-semibold">🔳 QRIS</span>
+            <input type="radio" name="method" value="QRIS" class="accent-indigo-600"> <span class="font-semibold">QRIS</span>
           </label>
         </section>
       </div>
@@ -65,7 +65,7 @@
           <div class="border-t border-slate-200 pt-4 flex justify-between items-baseline"><span class="font-semibold">Total</span><span id="sumTotal" class="text-2xl font-extrabold text-indigo-600">-</span></div>
           <p id="payMessage" class="text-sm text-red-600 hidden"></p>
           <button type="submit" id="paySubmit" class="w-full rounded-full bg-indigo-600 text-white py-4 font-semibold hover:bg-indigo-700 transition shadow-lg shadow-indigo-500/30 disabled:opacity-60">Bayar Sekarang</button>
-          <p class="text-xs text-slate-400 text-center">Simulasi pembayaran &mdash; belum terhubung ke payment gateway, tidak ada dana yang ditarik.</p>
+          <p class="text-xs text-slate-400 text-center">Ini Hanya Contoh Simulasi</p>
         </div>
       </aside>
     </form>
@@ -119,7 +119,7 @@
         method: new FormData(e.target).get('method'),
         paidAt: new Date().toISOString()
       }));
-      setTimeout(function () { location.href = '/pembayaran-berhasil'; }, 1200);
+      setTimeout(function () { location.href = 'pembayaran-berhasi.html'; }, 1200);
     });
   </script>
 </body>
