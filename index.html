@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EnglishClub - Lancar Bahasa Inggris Dalam 3 Bulan</title>
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts (Plus Jakarta Sans) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Plus Jakarta Sans', sans-serif; }
+    details summary::-webkit-details-marker { display: none; }
+    details[open] .faq-icon { transform: rotate(45deg); }
+    /* Full-width tinted band to visually separate alternating sections */
+    .section-band { position: relative; isolation: isolate; }
+    .section-band::before {
+      content: ''; position: absolute; top: 0; bottom: 0; left: 50%; width: 100vw; transform: translateX(-50%); z-index: -1;
+      background: linear-gradient(180deg, #eef2ff 0%, #f5f3ff 100%);
+      border-top: 1px solid #e0e7ff; border-bottom: 1px solid #e0e7ff;
+    }
+    .section-eyebrow { display: inline-flex; align-items: center; gap: .5rem; border-radius: 9999px; padding: .25rem .75rem; font-size: .75rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; background: #e0e7ff; color: #4338ca; }
+    .section-band .section-eyebrow { background: #fff; }
+  </style>
+</head>
+<body id="top" class="bg-slate-50 text-slate-800 antialiased min-h-screen overflow-x-hidden">
+
+  <!-- NAVBAR -->
+  <header class="sticky top-0 z-40 bg-white/80 backdrop-blur-md shadow-sm shadow-slate-200/50">
+    <div class="max-w-6xl mx-auto flex justify-between items-center px-6 py-4">
+      <a href="#top" class="flex items-center gap-2 hover:opacity-80 transition" aria-label="EnglishClub - kembali ke atas">
+        <span class="w-9 h-9 rounded-xl bg-gradient-to-br from-indigo-600 to-violet-500 flex items-center justify-center text-white shadow-md shadow-indigo-500/30">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"></path>
+          </svg>
+        </span>
+        <span class="font-extrabold text-lg text-slate-900">EnglishClub</span>
+      </a>
+      <nav class="font-semibold text-sm flex items-center gap-2 sm:gap-6">
+        <a href="#menu" class="px-2 py-1 text-slate-600 hover:text-indigo-600 transition">Menu</a>
+        <a href="#harga" class="px-2 py-1 text-slate-600 hover:text-indigo-600 transition">Harga</a>
+        <a href="#masuk" id="loginLink" onclick="openLogin(event)" class="px-4 py-2 rounded-full bg-indigo-600 text-white hover:bg-indigo-700 transition shadow-md shadow-indigo-500/30">Masuk</a>
+        <span id="userBox" class="hidden items-center gap-3">
+          <span id="userName" class="text-slate-600"></span>
+          <button onclick="handleLogout()" class="px-4 py-2 rounded-full bg-slate-100 hover:bg-slate-200 transition">Keluar</button>
+        </span>
+      </nav>
+    </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-6">
+
+  <!-- HERO SECTION -->
+  <section class="py-14 md:py-20 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+    <div class="space-y-6">
+      <span class="inline-flex items-center gap-2 rounded-full bg-indigo-50 text-indigo-700 text-xs font-semibold px-3 py-1">
+        <span class="w-2 h-2 rounded-full bg-indigo-500"></span> Kelas 1-on-1 dengan Native Speaker
+      </span>
+      <h1 class="text-4xl md:text-5xl font-extrabold leading-tight text-slate-900">
+        Lancar Bahasa Inggris Dalam
+        <span class="bg-gradient-to-r from-indigo-600 to-violet-500 bg-clip-text text-transparent">3 Bulan!</span>
+      </h1>
+      <p class="text-lg text-slate-600">
+        Metode 1-on-1 Bareng Native Speaker. Belajar Mudah Dimana Saja!
+      </p>
+      <div class="flex flex-wrap gap-3">
+        <button onclick="openForm('Mulai Kelas Gratis')" class="rounded-full bg-indigo-600 text-white px-7 py-4 font-semibold hover:bg-indigo-700 hover:-translate-y-0.5 transition shadow-lg shadow-indigo-500/30">
+          Mulai Kelas Gratis
+        </button>
+        <a href="#harga" class="rounded-full bg-white text-slate-700 px-7 py-4 font-semibold hover:bg-slate-100 transition shadow-sm">
+          Lihat Harga
+        </a>
+      </div>
+      <p class="text-sm text-slate-500 flex flex-wrap gap-x-5 gap-y-1">
+        <span>✓ Tanpa kartu kredit</span><span>✓ Tanpa ribet</span><span>✓ Coba 7 hari gratis</span>
+      </p>
+    </div>
+
+    <div class="relative">
+      <div class="absolute -inset-4 bg-gradient-to-br from-indigo-200 to-violet-200 rounded-[2rem] blur-2xl opacity-60"></div>
+      <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=800&auto=format&fit=crop"
+           alt="Siswa belajar bahasa Inggris"
+           class="relative w-full h-80 md:h-96 object-cover rounded-3xl shadow-xl">
+    </div>
+  </section>
+
+  <!-- TRUSTED SECTION -->
+  <section class="bg-white rounded-3xl shadow-sm px-6 py-8 text-center">
+    <p class="font-semibold text-slate-500 text-sm uppercase tracking-wider">Telah dipercaya oleh 1.000+ murid dan perusahaan terkemuka</p>
+    <div class="mt-6 grid grid-cols-2 md:grid-cols-4 gap-6">
+      <div><p class="text-3xl font-extrabold text-indigo-600">1.000+</p><p class="text-sm text-slate-500">Murid aktif</p></div>
+      <div><p class="text-3xl font-extrabold text-indigo-600">100+</p><p class="text-sm text-slate-500">Native speaker</p></div>
+      <div><p class="text-3xl font-extrabold text-indigo-600">4.9/5</p><p class="text-sm text-slate-500">Rating murid</p></div>
+      <div><p class="text-3xl font-extrabold text-indigo-600">100+</p><p class="text-sm text-slate-500">Perusahaan mitra</p></div>
+    </div>
+  </section>
+
+  <!-- WHY US SECTION -->
+  <section class="section-band mt-16 py-16 space-y-8">
+    <div class="text-center space-y-3">
+      <span class="section-eyebrow">· Alasan</span>
+      <h2 class="text-2xl md:text-3xl font-extrabold text-slate-900">Alasan harus memilih EnglishClub</h2>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div class="bg-white rounded-2xl p-6 shadow-sm">
+        <div class="w-11 h-11 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center text-xl mb-4">🎯</div>
+        <h3 class="font-bold text-slate-900">Belajar 1-on-1</h3>
+        <p class="text-sm text-slate-600 mt-1">Materi disesuaikan dengan level dan tujuanmu.</p>
+      </div>
+      <div class="bg-white rounded-2xl p-6 shadow-sm">
+        <div class="w-11 h-11 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center text-xl mb-4">🗓️</div>
+        <h3 class="font-bold text-slate-900">Jadwal Fleksibel</h3>
+        <p class="text-sm text-slate-600 mt-1">Pilih waktu belajar kapan saja, pagi hingga malam.</p>
+      </div>
+      <div class="bg-white rounded-2xl p-6 shadow-sm">
+        <div class="w-11 h-11 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center text-xl mb-4">🛡️</div>
+        <h3 class="font-bold text-slate-900">Garansi Pasti Bisa</h3>
+        <p class="text-sm text-slate-600 mt-1">Tidak lancar dalam 3 bulan? Uangmu kembali.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- MENU / PROGRAM SECTION -->
+  <section id="menu" class="scroll-mt-24 py-20 space-y-8">
+    <div class="text-center space-y-2">
+      <span class="section-eyebrow mb-1">· Menu</span>
+      <h2 class="text-2xl md:text-3xl font-extrabold text-slate-900">Menu Program Kelas</h2>
+      <p class="text-slate-600">Pilih program yang sesuai dengan tujuan belajarmu.</p>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+      <button onclick="openForm('Daftar: General Conversation')" class="group text-left bg-white rounded-2xl p-6 shadow-sm hover:shadow-xl hover:-translate-y-1 transition space-y-2">
+        <div class="text-2xl">💬</div>
+        <h3 class="font-bold text-lg text-slate-900">General Conversation</h3>
+        <p class="text-sm text-slate-600">Lancar ngobrol sehari-hari dengan percaya diri.</p>
+        <span class="inline-block text-sm font-semibold text-indigo-600 group-hover:translate-x-1 transition">Daftar &rarr;</span>
+      </button>
+      <button onclick="openForm('Daftar: Business English')" class="group text-left bg-white rounded-2xl p-6 shadow-sm hover:shadow-xl hover:-translate-y-1 transition space-y-2">
+        <div class="text-2xl">💼</div>
+        <h3 class="font-bold text-lg text-slate-900">Business English</h3>
+        <p class="text-sm text-slate-600">Meeting, presentasi, dan email profesional.</p>
+        <span class="inline-block text-sm font-semibold text-indigo-600 group-hover:translate-x-1 transition">Daftar &rarr;</span>
+      </button>
+      <button onclick="openForm('Daftar: Persiapan IELTS / TOEFL')" class="group text-left bg-white rounded-2xl p-6 shadow-sm hover:shadow-xl hover:-translate-y-1 transition space-y-2">
+        <div class="text-2xl">🎓</div>
+        <h3 class="font-bold text-lg text-slate-900">IELTS / TOEFL</h3>
+        <p class="text-sm text-slate-600">Strategi dan latihan intensif untuk skor target.</p>
+        <span class="inline-block text-sm font-semibold text-indigo-600 group-hover:translate-x-1 transition">Daftar &rarr;</span>
+      </button>
+      <button onclick="openForm('Daftar: English for Kids')" class="group text-left bg-white rounded-2xl p-6 shadow-sm hover:shadow-xl hover:-translate-y-1 transition space-y-2">
+        <div class="text-2xl">🧸</div>
+        <h3 class="font-bold text-lg text-slate-900">English for Kids</h3>
+        <p class="text-sm text-slate-600">Belajar seru untuk anak usia 6&ndash;12 tahun.</p>
+        <span class="inline-block text-sm font-semibold text-indigo-600 group-hover:translate-x-1 transition">Daftar &rarr;</span>
+      </button>
+    </div>
+  </section>
+
+  <!-- HARGA SECTION -->
+  <section id="harga" class="section-band scroll-mt-24 py-20 space-y-10">
+    <div class="text-center space-y-2">
+      <span class="section-eyebrow mb-1">· Harga</span>
+      <h2 class="text-2xl md:text-3xl font-extrabold text-slate-900">Harga Paket</h2>
+      <p class="text-slate-600">Semua paket termasuk coba gratis 7 hari.</p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">
+      <div class="bg-white rounded-3xl p-8 shadow-sm flex flex-col gap-5">
+        <h3 class="font-bold text-lg text-slate-900">Kids</h3>
+        <p><span class="text-4xl font-extrabold text-slate-900">Rp150rb</span><span class="text-slate-500">/bulan</span></p>
+        <ul class="text-sm text-slate-600 space-y-2 flex-1">
+          <li>✓ Sesi tiap weekend</li>
+          <li>✓ Materi belajar menyenangkan dan interaktif</li>
+          <li>✓ Games dan Kuis menyenangkan</li>
+        </ul>
+        <button onclick="openForm('Pilih Paket Kids', 'kids')" class="rounded-full bg-slate-100 text-slate-900 py-3 font-semibold hover:bg-slate-200 transition">Pilih Kids</button>
+      </div>
+      <div class="relative rounded-3xl p-8 flex flex-col gap-5 bg-gradient-to-br from-indigo-600 to-violet-600 text-white shadow-2xl shadow-indigo-500/40 md:-translate-y-3">
+        <span class="absolute -top-3 left-8 rounded-full bg-amber-400 text-slate-900 text-xs font-bold px-3 py-1">PALING POPULER</span>
+        <h3 class="font-bold text-lg">Basic</h3>
+        <p><span class="text-4xl font-extrabold">Rp250rb</span><span class="text-indigo-100">/bulan</span></p>
+        <ul class="text-sm text-indigo-50 space-y-2 flex-1">
+          <li>✓ 8 sesi per bulan</li>
+          <li>✓ Materi belajar digital</li>
+          <li>✓ Laporan mingguan</li>
+          <li>✓ Sertifikat</li>
+        </ul>
+        <button onclick="openForm('Pilih Paket Basic', 'basic')" class="rounded-full bg-white text-indigo-700 py-3 font-semibold hover:bg-indigo-50 transition">Pilih Basic</button>
+      </div>
+      <div class="bg-white rounded-3xl p-8 shadow-sm flex flex-col gap-5">
+        <h3 class="font-bold text-lg text-slate-900">Pro</h3>
+        <p><span class="text-4xl font-extrabold text-slate-900">Rp500rb</span><span class="text-slate-500">/bulan</span></p>
+        <ul class="text-sm text-slate-600 space-y-2 flex-1">
+          <li>✓ Sesi harian 1-on-1</li>
+          <li>✓ Mentor pribadi</li>
+          <li>✓ Jadwal sesukamu</li>
+          <li>✓ Laporan progress harian</li>
+          <li>✓ Sertifikat Keahlian</li>
+        </ul>
+        <button onclick="openForm('Pilih Paket Pro', 'pro')" class="rounded-full bg-slate-100 text-slate-900 py-3 font-semibold hover:bg-slate-200 transition">Pilih Pro</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ & GUARANTEE SECTION -->
+  <section class="py-20 space-y-8 max-w-3xl mx-auto">
+    <div class="text-center space-y-2">
+      <span class="section-eyebrow mb-1">· Pertanyaan</span><br>
+      <span class="inline-block rounded-full bg-emerald-50 text-emerald-700 text-xs font-semibold px-3 py-1">Garansi 100% Uang Kembali — Pelayanan Cepat Dan Tanggap</span>
+      <h2 class="text-2xl md:text-3xl font-extrabold text-slate-900">Pertanyaan Sering Diajukan</h2>
+    </div>
+    <div class="space-y-3">
+      <details class="group bg-white rounded-2xl shadow-sm p-5">
+        <summary class="flex justify-between items-center cursor-pointer font-semibold text-slate-900 list-none">
+          Apakah cocok untuk pemula dari level nol?
+          <span class="faq-icon text-indigo-600 text-2xl leading-none transition">+</span>
+        </summary>
+        <p class="mt-3 text-slate-600 text-sm">Sangat cocok. Tutor akan memulai dari dasar dan menyesuaikan materi dengan kemampuanmu.</p>
+      </details>
+      <details class="group bg-white rounded-2xl shadow-sm p-5">
+        <summary class="flex justify-between items-center cursor-pointer font-semibold text-slate-900 list-none">
+          Bagaimana jadwal kelasnya diatur?
+          <span class="faq-icon text-indigo-600 text-2xl leading-none transition">+</span>
+        </summary>
+        <p class="mt-3 text-slate-600 text-sm">Kamu bebas memilih jadwal sendiri sesuai paket yang dipilih, dari pagi hingga malam.</p>
+      </details>
+      <details class="group bg-white rounded-2xl shadow-sm p-5">
+        <summary class="flex justify-between items-center cursor-pointer font-semibold text-slate-900 list-none">
+          Berapa lama durasi setiap sesi kelas?
+          <span class="faq-icon text-indigo-600 text-2xl leading-none transition">+</span>
+        </summary>
+        <p class="mt-3 text-slate-600 text-sm">Setiap sesi berlangsung 60 menit secara online melalui Zoom, Discord maupun Google meet.</p>
+      </details>
+    </div>
+  </section>
+
+  <!-- BOTTOM CTA / FORM SECTION -->
+  <section class="mb-16 rounded-3xl bg-gradient-to-br from-slate-900 to-indigo-900 text-white px-8 py-12 md:px-12 flex flex-col md:flex-row md:items-center md:justify-between gap-6 shadow-xl">
+    <div class="space-y-2">
+      <h3 class="text-2xl md:text-3xl font-extrabold">Siap Jago Bahasa Inggris?</h3>
+      <p class="text-indigo-100">Dapatkan diskon 50% khusus 20 pendaftar pertama</p>
+    </div>
+    <button onclick="openForm('Klaim Diskon & Daftar')" class="shrink-0 rounded-full bg-white text-indigo-700 px-7 py-4 font-semibold hover:bg-indigo-50 hover:-translate-y-0.5 transition">
+      Klaim Diskon & Daftar
+    </button>
+  </section>
+
+  </main>
+
+  <footer class="text-center text-sm text-slate-500 pb-10">© 2026 EnglishClub. Semua hak dilindungi.</footer>
+
+  <!-- MODAL FORMULIR KONTAK & PEMBELIAN -->
+  <div id="formModal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm hidden flex items-center justify-center p-4 z-50">
+    <div class="bg-white max-w-md w-full p-8 space-y-5 relative rounded-3xl shadow-2xl">
+      <button onclick="closeForm()" class="absolute top-4 right-4 w-9 h-9 rounded-full bg-slate-100 hover:bg-slate-200 text-xl leading-none transition" aria-label="Tutup">&times;</button>
+
+      <h3 id="modalTitle" class="text-2xl font-extrabold text-slate-900 pr-10">Formulir Pendaftaran</h3>
+
+      <!-- Formulir dikirim ke Formspree via fetch, lalu diarahkan ke /berhasil-daftar -->
+      <form id="regForm" action="https://formspree.io/f/xvkkkzwo" method="POST" class="space-y-4">
+        <input type="hidden" name="pilihan" id="formChoice" value="">
+        <input type="hidden" name="paket" id="formPackage" value="">
+        <div>
+          <label class="block text-sm font-semibold mb-1 text-slate-700">Nama Lengkap</label>
+          <input type="text" name="nama" required class="w-full rounded-xl bg-slate-50 border border-slate-200 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent" placeholder="Masukkan nama Anda">
+        </div>
+        <div>
+          <label class="block text-sm font-semibold mb-1 text-slate-700">Email</label>
+          <input type="email" name="email" required class="w-full rounded-xl bg-slate-50 border border-slate-200 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent" placeholder="nama@email.com">
+        </div>
+        <div>
+          <label class="block text-sm font-semibold mb-1 text-slate-700">Nomor WhatsApp</label>
+          <input type="tel" name="whatsapp" required class="w-full rounded-xl bg-slate-50 border border-slate-200 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent" placeholder="08123456789">
+        </div>
+        <p id="regMessage" class="text-sm text-red-600 hidden"></p>
+        <button type="submit" id="regSubmit" class="w-full rounded-full bg-indigo-600 text-white py-3 font-semibold hover:bg-indigo-700 transition shadow-lg shadow-indigo-500/30 disabled:opacity-60">
+          Kirim & Daftar Sekarang
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- MODAL MASUK / DAFTAR AKUN -->
+  <div id="loginModal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm hidden flex items-center justify-center p-4 z-50">
+    <div class="bg-white max-w-md w-full p-8 space-y-5 relative rounded-3xl shadow-2xl">
+      <button onclick="closeLogin()" class="absolute top-4 right-4 w-9 h-9 rounded-full bg-slate-100 hover:bg-slate-200 text-xl leading-none transition" aria-label="Tutup">&times;</button>
+      <h3 id="loginTitle" class="text-2xl font-extrabold text-slate-900">Masuk</h3>
+      <form id="authForm" class="space-y-4">
+        <div id="nameField" class="hidden">
+          <label class="block text-sm font-semibold mb-1 text-slate-700">Nama Lengkap</label>
+          <input type="text" id="authName" class="w-full rounded-xl bg-slate-50 border border-slate-200 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent" placeholder="Masukkan nama Anda">
+        </div>
+        <div>
+          <label class="block text-sm font-semibold mb-1 text-slate-700">Email</label>
+          <input type="email" id="authEmail" required class="w-full rounded-xl bg-slate-50 border border-slate-200 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent" placeholder="nama@email.com">
+        </div>
+        <div>
+          <label class="block text-sm font-semibold mb-1 text-slate-700">Password</label>
+          <input type="password" id="authPassword" required minlength="6" class="w-full rounded-xl bg-slate-50 border border-slate-200 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent" placeholder="••••••••">
+        </div>
+        <p id="authMessage" class="text-sm hidden"></p>
+        <button type="submit" id="authSubmit" class="w-full rounded-full bg-indigo-600 text-white py-3 font-semibold hover:bg-indigo-700 transition shadow-lg shadow-indigo-500/30 disabled:opacity-60">
+          Masuk
+        </button>
+      </form>
+      <p class="text-sm text-center text-slate-600">
+        <span id="toggleText">Belum punya akun?</span>
+        <button type="button" onclick="toggleAuthMode()" id="toggleBtn" class="font-semibold text-indigo-600 hover:underline">Daftar</button>
+      </p>
+    </div>
+  </div>
+
+  <script>
+    function openForm(title, paket) {
+      document.getElementById('modalTitle').innerText = title;
+      document.getElementById('formChoice').value = title;
+      document.getElementById('formPackage').value = paket || '';
+      document.getElementById('regMessage').classList.add('hidden');
+      document.getElementById('formModal').classList.remove('hidden');
+    }
+    function closeForm() {
+      document.getElementById('formModal').classList.add('hidden');
+    }
+    let authMode = 'login';
+    function openLogin(e) {
+      if (e) e.preventDefault();
+      setAuthMessage('');
+      document.getElementById('loginModal').classList.remove('hidden');
+    }
+    function closeLogin() {
+      document.getElementById('loginModal').classList.add('hidden');
+    }
+    function toggleAuthMode() {
+      authMode = authMode === 'login' ? 'signup' : 'login';
+      const isSignup = authMode === 'signup';
+      document.getElementById('loginTitle').innerText = isSignup ? 'Daftar Akun' : 'Masuk';
+      document.getElementById('authSubmit').innerText = isSignup ? 'Daftar' : 'Masuk';
+      document.getElementById('nameField').classList.toggle('hidden', !isSignup);
+      document.getElementById('toggleText').innerText = isSignup ? 'Sudah punya akun?' : 'Belum punya akun?';
+      document.getElementById('toggleBtn').innerText = isSignup ? 'Masuk' : 'Daftar';
+      setAuthMessage('');
+    }
+    function setAuthMessage(text, isError) {
+      const el = document.getElementById('authMessage');
+      el.innerText = text;
+      el.classList.toggle('hidden', !text);
+      el.classList.toggle('text-red-600', !!isError);
+      el.classList.toggle('text-green-700', !isError);
+    }
+    // Kirim pendaftaran tanpa pindah ke situs lain, lalu arahkan ke halaman sukses
+    document.getElementById('regForm').addEventListener('submit', async function (e) {
+      e.preventDefault();
+      const form = e.target;
+      const btn = document.getElementById('regSubmit');
+      const msg = document.getElementById('regMessage');
+      const data = new FormData(form);
+      btn.disabled = true;
+      btn.innerText = 'Mengirim...';
+      msg.classList.add('hidden');
+      try {
+        const res = await fetch(form.action, { method: 'POST', body: data, headers: { Accept: 'application/json' } });
+        if (!res.ok) throw new Error('Gagal mengirim');
+        sessionStorage.setItem('ecRegistration', JSON.stringify({
+          nama: data.get('nama'), email: data.get('email'), whatsapp: data.get('whatsapp'),
+          pilihan: data.get('pilihan'), paket: data.get('paket')
+        }));
+        location.href = '/berhasil-daftar';
+      } catch (_) {
+        msg.innerText = 'Pendaftaran gagal dikirim. Periksa koneksi Anda dan coba lagi.';
+        msg.classList.remove('hidden');
+        btn.disabled = false;
+        btn.innerText = 'Kirim & Daftar Sekarang';
+      }
+    });
+    // Tutup modal dengan tombol Escape
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') { closeForm(); closeLogin(); }
+    });
+    // Buka modal Masuk jika URL berakhiran #masuk
+    if (location.hash === '#masuk') openLogin();
+    // Tutup modal saat klik area gelap di luar kotak
+    ['formModal', 'loginModal'].forEach(function (id) {
+      document.getElementById(id).addEventListener('click', function (e) {
+        if (e.target === this) this.classList.add('hidden');
+      });
+    });
+  </script>
+
+  <!-- Autentikasi dengan Netlify Identity -->
+  <script type="module">
+    import { login, signup, logout, getUser, handleAuthCallback, AuthError, MissingIdentityError } from 'https://esm.sh/@netlify/identity';
+
+    function showUser(user) {
+      const loggedIn = !!user;
+      document.getElementById('loginLink').classList.toggle('hidden', loggedIn);
+      const box = document.getElementById('userBox');
+      box.classList.toggle('hidden', !loggedIn);
+      box.classList.toggle('flex', loggedIn);
+      if (user) document.getElementById('userName').innerText = 'Hai, ' + (user.name || user.email);
+    }
+
+    function errorText(error) {
+      if (error instanceof MissingIdentityError) return 'Fitur login belum aktif di situs ini.';
+      if (error instanceof AuthError) {
+        if (error.status === 401 || error.status === 400) return 'Email atau password salah.';
+        if (error.status === 403) return 'Pendaftaran akun sedang ditutup.';
+        if (error.status === 422) return 'Data tidak valid. Periksa email dan password (min. 6 karakter).';
+        return error.message;
+      }
+      return 'Terjadi kesalahan. Silakan coba lagi.';
+    }
+
+    document.getElementById('authForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const email = document.getElementById('authEmail').value.trim();
+      const password = document.getElementById('authPassword').value;
+      const btn = document.getElementById('authSubmit');
+      btn.disabled = true;
+      setAuthMessage('');
+      try {
+        if (authMode === 'signup') {
+          const name = document.getElementById('authName').value.trim();
+          const user = await signup(email, password, { full_name: name });
+          if (user.emailVerified) {
+            showUser(user);
+            closeLogin();
+          } else {
+            setAuthMessage('Akun dibuat! Cek email Anda untuk konfirmasi.');
+          }
+        } else {
+          const user = await login(email, password);
+          showUser(user);
+          closeLogin();
+        }
+      } catch (error) {
+        setAuthMessage(errorText(error), true);
+      } finally {
+        btn.disabled = false;
+      }
+    });
+
+    window.handleLogout = async () => {
+      try { await logout(); } catch (_) {}
+      showUser(null);
+    };
+
+    try {
+      const result = await handleAuthCallback();
+      if (result && result.type === 'confirmation') alert('Email berhasil dikonfirmasi. Anda sudah masuk.');
+    } catch (_) {}
+    showUser(await getUser());
+  </script>
+</body>
+</html>

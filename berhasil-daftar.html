@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>body { font-family: 'Plus Jakarta Sans', sans-serif; }</style>
+  <script src="/assets/checkout.js"></script>
+  <title>Pendaftaran Berhasil - EnglishClub</title>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased min-h-screen">
+  <header class="bg-white/80 backdrop-blur-md shadow-sm shadow-slate-200/50">
+    <div class="max-w-6xl mx-auto flex justify-between items-center px-6 py-4">
+      <a href="/" class="flex items-center gap-2 hover:opacity-80 transition">
+        <span class="w-9 h-9 rounded-xl bg-gradient-to-br from-indigo-600 to-violet-500 flex items-center justify-center text-white shadow-md shadow-indigo-500/30">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"></path></svg>
+        </span>
+        <span class="font-extrabold text-lg text-slate-900">EnglishClub</span>
+      </a>
+      <a href="/" class="text-sm font-semibold text-slate-600 hover:text-indigo-600 transition">&larr; Beranda</a>
+    </div>
+  </header>
+  <main class="max-w-2xl mx-auto px-6 py-14 space-y-8">
+    <section class="bg-white rounded-3xl shadow-sm p-8 md:p-10 text-center space-y-4">
+      <div class="mx-auto w-16 h-16 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center">
+        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+      </div>
+      <h1 class="text-3xl font-extrabold text-slate-900">Berhasil Mendaftar!</h1>
+      <p id="greeting" class="text-slate-600">Terima kasih telah mendaftar di EnglishClub.</p>
+      <p class="text-sm text-slate-500">Tim kami akan menghubungi Anda melalui WhatsApp dalam 1&times;24 jam untuk menjadwalkan kelas percobaan gratis.</p>
+      <dl id="regSummary" class="hidden text-left bg-slate-50 rounded-2xl p-5 text-sm grid grid-cols-3 gap-y-2">
+        <dt class="text-slate-500">Pilihan</dt><dd id="sumChoice" class="col-span-2 font-semibold text-slate-900"></dd>
+        <dt class="text-slate-500">Email</dt><dd id="sumEmail" class="col-span-2 font-semibold text-slate-900 break-all"></dd>
+        <dt class="text-slate-500">WhatsApp</dt><dd id="sumWa" class="col-span-2 font-semibold text-slate-900"></dd>
+      </dl>
+    </section>
+
+    <section class="space-y-4">
+      <h2 class="text-xl font-extrabold text-slate-900 text-center">Lanjutkan ke pembayaran paket</h2>
+      <div id="packageList" class="grid grid-cols-1 sm:grid-cols-3 gap-4"></div>
+      <p class="text-center text-sm text-slate-500"><a href="/" class="font-semibold text-indigo-600 hover:underline">Nanti saja, kembali ke beranda</a></p>
+    </section>
+  </main>
+
+  <script>
+    const reg = readSession('ecRegistration');
+    if (reg) {
+      document.getElementById('greeting').innerText = 'Terima kasih, ' + reg.nama + '! Pendaftaran Anda sudah kami terima.';
+      document.getElementById('sumChoice').innerText = reg.pilihan || '-';
+      document.getElementById('sumEmail').innerText = reg.email;
+      document.getElementById('sumWa').innerText = reg.whatsapp;
+      document.getElementById('regSummary').classList.remove('hidden');
+    }
+    const list = document.getElementById('packageList');
+    Object.entries(EC_PACKAGES).forEach(function ([id, p]) {
+      const selected = reg && reg.paket === id;
+      const a = document.createElement('a');
+      a.href = '/pembayaran?paket=' + id;
+      a.className = 'block rounded-2xl p-5 shadow-sm hover:shadow-xl hover:-translate-y-1 transition text-center space-y-1 ' +
+        (selected ? 'bg-gradient-to-br from-indigo-600 to-violet-600 text-white' : 'bg-white');
+      a.innerHTML = (selected ? '<span class="text-xs font-bold uppercase tracking-wider text-indigo-100">Pilihan Anda</span>' : '') +
+        '<p class="font-bold text-lg"></p><p class="text-2xl font-extrabold"></p>' +
+        '<p class="text-sm font-semibold ' + (selected ? 'text-white' : 'text-indigo-600') + '">Bayar &rarr;</p>';
+      a.querySelectorAll('p')[0].innerText = p.name;
+      a.querySelectorAll('p')[1].innerText = formatRupiah(p.price);
+      list.appendChild(a);
+    });
+  </script>
+</body>
+</html>
