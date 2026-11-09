@@ -5,11 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>EnglishClub - Lancar Bahasa Inggris Dalam 3 Bulan</title>
   <!-- Tailwind CSS via CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.tailwindcss.com" defer></script>
   <!-- Google Fonts (Plus Jakarta Sans) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"></noscript>
   <style>
     html { scroll-behavior: smooth; }
     body { font-family: 'Plus Jakarta Sans', sans-serif; }
@@ -25,6 +26,21 @@
     .section-eyebrow { display: inline-flex; align-items: center; gap: .5rem; border-radius: 9999px; padding: .25rem .75rem; font-size: .75rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; background: #e0e7ff; color: #4338ca; }
     .section-band .section-eyebrow { background: #fff; }
   </style>
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "EnglishClub",
+  "url": "https://englishclub2.netlify.app",
+  "logo": "https://images.unsplash.com/photo-1522202176988-66273c2fd55f",
+  "description": "Kursus bahasa Inggris 1-on-1 bersama native speaker",
+  "sameAs": [
+    "https://github.com",
+    "https://instagram.com"
+  ]
+}
+</script>
 </head>
 <body id="top" class="bg-slate-50 text-slate-800 antialiased min-h-screen overflow-x-hidden">
 
@@ -81,9 +97,17 @@
 
     <div class="relative">
       <div class="absolute -inset-4 bg-gradient-to-br from-indigo-200 to-violet-200 rounded-[2rem] blur-2xl opacity-60"></div>
-      <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=800&auto=format&fit=crop"
-           alt="Siswa belajar bahasa Inggris"
-           class="relative w-full h-80 md:h-96 object-cover rounded-3xl shadow-xl">
+      <picture>
+        <!-- Memanggil format WebP secara modern -->
+        <source srcset="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=800&auto=format&fit=crop&fm=webp" type="image/webp">
+        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=800&auto=format&fit=crop"
+             alt="Siswa belajar bahasa Inggris"
+             width="800"
+             height="384"
+             loading="lazy"
+             decoding="async"
+             class="relative w-full h-80 md:h-96 object-cover rounded-3xl shadow-xl">
+      </picture>
     </div>
   </section>
 
